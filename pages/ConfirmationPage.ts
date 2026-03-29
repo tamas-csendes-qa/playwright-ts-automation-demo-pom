@@ -15,19 +15,19 @@ export class ConfirmationPage extends BasePage {
     super(page);
   }
 
-  async shippingInfo() {
+  async shippingInfo(): Promise<string | null> {
     return await this.shippingInformation.textContent();
   }
 
-  async getItemTotal() {
+  async getItemTotal(): Promise<string | null> {
     return await this.priceTotal.textContent();
   }
 
-  async getTax() {
+  async getTax(): Promise<string | null> {
     return await this.taxPrice.textContent();
   }
 
-  async getTotal() {
+  async getTotal(): Promise<string | null> {
     return await this.totalPrice.textContent();
   }
 
@@ -43,7 +43,7 @@ export class ConfirmationPage extends BasePage {
     await this.backHomeButton.click();
   }
 
-  async orderConfirmationText() {
+  async orderConfirmationText(): Promise<string | null> {
     return await this.orderConfirmation.textContent();
   }
 }
