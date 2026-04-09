@@ -1,27 +1,21 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+import { test, expect } from '../fixtures/login.fixture';
 import { InventoryPage } from '../pages/InventoryPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { ConfirmationPage } from '../pages/ConfirmationPage';
-import { UserFactory } from '../factories/user.factory';
 import { ProductFactory } from '../factories/product.factory';
 import { CheckoutFactory } from '../factories/checkout.factory';
 
-test('User can complete a purchase from login to order confirmation', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+test('User can complete a purchase from login to order confirmation', async ({
+  page,
+  loginPage: _loginPage,
+}) => {
   const inventoryPage = new InventoryPage(page);
   const cartPage = new CartPage(page);
   const checkoutPage = new CheckoutPage(page);
   const confirmationPage = new ConfirmationPage(page);
 
-  const user = UserFactory.standardUser();
   const product = ProductFactory.sauceLabsBoltTShirt();
-
-  await loginPage.navigate('/');
-  await loginPage.login(user);
-
-  await expect(page).toHaveURL(/inventory/);
 
   await inventoryPage.sortBy('Price (low to high)');
   await inventoryPage.addToCart(product);
