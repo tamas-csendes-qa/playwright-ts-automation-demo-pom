@@ -16,7 +16,7 @@ trace.zip
 .env
 .env.*
 
-# OS / editor
+# OS/editor
 .DS_Store
 Thumbs.db
 
