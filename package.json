@@ -1,13 +1,22 @@
 {
-  "name": "saucedemo-pom",
+  "name": "playwright-ts-automation-demo-pom",
   "version": "1.0.0",
-  "description": "",
+  "description": "Playwright + TypeScript UI automation using Page Object Model and Factory pattern test data",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:headed": "npx playwright test --headed",
+    "report": "npx playwright show-report"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "playwright",
+    "typescript",
+    "page-object-model",
+    "test-automation"
+  ],
+  "author": "Csendes Tamás",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
